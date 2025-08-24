@@ -3,6 +3,7 @@
 import { Navigation } from "./navigation";
 import { Breadcrumb } from "./breadcrumb";
 import { ErrorBoundary } from "./error-boundary";
+import { RoleSwitcher } from "./role-switcher";
 import { useSession } from "next-auth/react";
 
 interface MainLayoutProps {
@@ -21,6 +22,12 @@ export function MainLayout({
   return (
     <div className={className}>
       {session && <Navigation />}
+      
+      {session && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+          <RoleSwitcher />
+        </div>
+      )}
       
       {session && showBreadcrumbs && (
         <div className="bg-white border-b">

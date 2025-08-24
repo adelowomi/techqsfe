@@ -1,53 +1,26 @@
-"use client";
+import { auth } from "~/server/auth";
+import { redirect } from "next/navigation";
+import { HydrateClient } from "~/trpc/server";
+import { CardsPageClient } from "./_components/cards-page-client";
 
-import { useSearchParams, useRouter } from "next/navigation";
-import { Suspense } from "react";
-import { DeckView } from "./_components";
-import { MainLayout } from "~/app/_components/main-layout";
-import { ErrorBoundary, CardErrorFallback, DeckLoadingState } from "~/app/_components";
-import type { Difficulty } from "~/lib/types";
+export default async function CardsPage() {
+  const session = await auth();
 
-function CardsPageContent() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  
-  const seasonId = searchParams.get("season");
-  const difficulty = searchParams.get("difficulty") as Difficulty;
-
-  if (!seasonId || !difficulty) {
-    router.push("/seasons");
-    return null;
+  if (!session?.user) {
+    redirect("/signin");
   }
 
-  const handleBack = () => {
-    router.push(`/seasons?selected=${seasonId}`);
-  };
+  // Check if user has permission to manage cards
+  if (!["PRODUCER", "ADMIN"].includes(session.user.role)) {
+    redirect("/");
+  }
 
   return (
-    <MainLayout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <ErrorBoundary fallback={CardErrorFallback}>
-          <DeckView
-            seasonId={seasonId}
-            difficulty={difficulty}
-            onBack={handleBack}
-          />
-        </ErrorBoundary>
-      </div>
-    </MainLayout>
+    <HydrateClient>
+      <CardsPageClient />
+    </HydrateClient>
   );
 }
 
-export default function CardsPage() {
-  return (
-    <Suspense fallback={
-      <MainLayout>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <DeckLoadingState />
-        </div>
-      </MainLayout>
-    }>
-      <CardsPageContent />
-    </Suspense>
-  );
-}
+
+

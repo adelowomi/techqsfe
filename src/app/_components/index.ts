@@ -3,6 +3,7 @@ export { Breadcrumb } from "./breadcrumb";
 export { MainLayout } from "./main-layout";
 export { RoleBadge } from "./role-badge";
 export { RoleGuard, AdminOnly, ProducerOnly, HostOnly } from "./role-guard";
+export { RoleSwitcher } from "./role-switcher";
 export { SessionProviderWrapper } from "./session-provider";
 export { UserManagement } from "./user-management";
 export { LatestPost } from "./post";

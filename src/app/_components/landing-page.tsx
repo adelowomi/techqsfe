@@ -62,11 +62,24 @@ export const LandingPage: React.FC<LandingPageProps> = ({
   };
 
   const handleDashboard = () => {
-    router.push('/seasons'); // Redirect to main app section
+    // Route based on user role
+    if (user?.role === 'ADMIN') {
+      router.push('/admin');
+    } else if (user?.role === 'PRODUCER') {
+      router.push('/seasons');
+    } else {
+      router.push('/game'); // HOST users go to game page
+    }
   };
 
   const handleSeasons = () => {
-    router.push('/seasons');
+    // Only allow PRODUCER and ADMIN to access seasons
+    if (user?.role === 'PRODUCER' || user?.role === 'ADMIN') {
+      router.push('/seasons');
+    } else {
+      // Show an alert or redirect to appropriate page
+      alert('You need Producer or Admin privileges to manage seasons.');
+    }
   };
 
   const handleAnalytics = () => {

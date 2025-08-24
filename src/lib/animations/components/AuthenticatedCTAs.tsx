@@ -52,7 +52,7 @@ export const AuthenticatedCTAs: React.FC<AuthenticatedCTAsProps> = ({
       ),
       onClick: onSeasonsClick || (() => {}),
       color: 'from-blue-500 to-blue-600',
-      roles: ['HOST', 'PRODUCER', 'ADMIN']
+      roles: ['PRODUCER', 'ADMIN']
     },
     {
       id: 'cards',
@@ -65,7 +65,7 @@ export const AuthenticatedCTAs: React.FC<AuthenticatedCTAsProps> = ({
       ),
       onClick: onCardsClick || (() => {}),
       color: 'from-green-500 to-green-600',
-      roles: ['HOST', 'PRODUCER', 'ADMIN']
+      roles: ['PRODUCER', 'ADMIN']
     },
     {
       id: 'game',
@@ -91,7 +91,7 @@ export const AuthenticatedCTAs: React.FC<AuthenticatedCTAsProps> = ({
       ),
       onClick: onAnalyticsClick || (() => {}),
       color: 'from-orange-500 to-orange-600',
-      roles: ['HOST', 'PRODUCER', 'ADMIN']
+      roles: ['PRODUCER', 'ADMIN']
     }
   ];
 
