@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@import "./animations.css";
+
+@theme {
+	--font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* Custom grid columns for card deck visualization */
+.grid-cols-13 {
+	grid-template-columns: repeat(13, minmax(0, 1fr));
+}
+
+/* Line clamp utility */
+.line-clamp-3 {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+}

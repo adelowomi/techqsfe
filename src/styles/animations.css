@@ -1,0 +1,749 @@
+/* Animation utility styles */
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Screen reader announcements */
+.sr-announcement {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ARIA live regions */
+[aria-live] {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Screen reader instructions */
+.sr-instructions {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Landmark roles styling */
+[role="main"]:focus,
+[role="navigation"]:focus,
+[role="banner"]:focus,
+[role="contentinfo"]:focus,
+[role="complementary"]:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* Interactive elements with ARIA labels */
+[role="button"][aria-label]:focus,
+[role="article"][aria-label]:focus {
+  outline: 3px solid #0066cc;
+  outline-offset: 4px;
+}
+
+/* Skip links container */
+.skip-links {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+}
+
+/* Skip link styles */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px 12px;
+  text-decoration: none;
+  z-index: 10001;
+  border-radius: 4px;
+  border: 2px solid #fff;
+  font-weight: bold;
+  font-size: 14px;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 6px;
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.skip-link:hover {
+  background: #333;
+  text-decoration: underline;
+}
+
+/* Focus visible styles */
+.focus-visible {
+  outline: 2px solid #0066cc !important;
+  outline-offset: 2px !important;
+  border-radius: 4px;
+}
+
+/* Enhanced focus indicators for different element types */
+.card.focus-visible,
+[data-card].focus-visible {
+  outline: 3px solid #0066cc !important;
+  outline-offset: 4px !important;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 4px #0066cc;
+}
+
+button.focus-visible,
+[role="button"].focus-visible {
+  outline: 2px solid #0066cc !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 4px #0066cc;
+}
+
+a.focus-visible {
+  outline: 2px solid #0066cc !important;
+  outline-offset: 2px !important;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+/* Keyboard navigation helpers */
+.keyboard-shortcuts-help {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+}
+
+.keyboard-shortcuts-help ul {
+  list-style: none;
+  padding: 0;
+}
+
+.keyboard-shortcuts-help li {
+  padding: 4px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.keyboard-shortcuts-help li:last-child {
+  border-bottom: none;
+}
+
+/* Interactive element states */
+[data-interactive] {
+  cursor: pointer;
+  position: relative;
+}
+
+[data-interactive]:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+[data-interactive]:active {
+  transform: scale(0.98);
+}
+
+/* Card navigation indicators */
+.card-navigation-active {
+  position: relative;
+}
+
+.card-navigation-active::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px dashed #0066cc;
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Reduced motion styles */
+.reduced-motion *,
+.reduced-motion *::before,
+.reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Static alternatives for animated content */
+.static-card {
+  transform: none !important;
+  transition: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.static-card:focus {
+  box-shadow: 0 0 0 2px #0066cc;
+  outline: none;
+}
+
+.static-counter {
+  font-weight: bold;
+  color: #007cba;
+}
+
+.static-chart {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  background: #f9f9f9;
+}
+
+.static-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.chart-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.chart-data-table th,
+.chart-data-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.chart-data-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* High contrast adjustments */
+.high-contrast {
+  filter: contrast(150%);
+}
+
+.high-contrast .card {
+  border: 2px solid currentColor;
+}
+
+/* Animation base classes */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* GPU acceleration utilities */
+.gpu-accelerated {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Card animation utilities */
+.card-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card-face {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card-face-back {
+  transform: rotateY(180deg);
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes cardShuffle {
+  0% {
+    transform: translateX(0) translateY(0) rotateZ(0deg);
+  }
+  25% {
+    transform: translateX(-20px) translateY(-10px) rotateZ(-5deg);
+  }
+  50% {
+    transform: translateX(20px) translateY(-20px) rotateZ(5deg);
+  }
+  75% {
+    transform: translateX(-10px) translateY(-5px) rotateZ(-2deg);
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotateZ(0deg);
+  }
+}
+
+@keyframes cardFlip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(90deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes cardHover {
+  0% {
+    transform: translateY(0) rotateX(0deg) rotateY(0deg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Responsive animation adjustments */
+:root {
+  --animation-duration: 600ms;
+  --animation-stagger: 100ms;
+  --card-size-multiplier: 1;
+  --touch-area-size: 44px;
+  --animation-complexity: full;
+  --hover-enabled: 1;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  :root {
+    --animation-duration: 300ms;
+    --animation-stagger: 50ms;
+    --card-size-multiplier: 0.8;
+    --touch-area-size: 44px;
+    --animation-complexity: reduced;
+    --hover-enabled: 0;
+  }
+
+  .animate-fade-in,
+  .animate-slide-in-up,
+  .animate-slide-in-left,
+  .animate-slide-in-right {
+    animation-duration: var(--animation-duration);
+  }
+
+  /* Larger touch targets for mobile */
+  .card-interactive,
+  .animation-trigger,
+  button,
+  [role="button"] {
+    min-height: var(--touch-area-size);
+    min-width: var(--touch-area-size);
+    padding: 12px;
+  }
+
+  /* Simplified card animations on mobile */
+  .card-3d {
+    perspective: 800px;
+  }
+
+  @keyframes cardHover {
+    0% {
+      transform: translateY(0) scale(1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    100% {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  /* Reduce animation complexity */
+  .animation-complex {
+    display: none;
+  }
+
+  .animation-simple {
+    display: block;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  :root {
+    --animation-duration: 400ms;
+    --animation-stagger: 75ms;
+    --card-size-multiplier: 0.9;
+    --touch-area-size: 44px;
+    --animation-complexity: reduced;
+    --hover-enabled: 0;
+  }
+
+  .card-interactive,
+  .animation-trigger {
+    min-height: var(--touch-area-size);
+    min-width: var(--touch-area-size);
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 1025px) {
+  :root {
+    --animation-duration: 600ms;
+    --animation-stagger: 100ms;
+    --card-size-multiplier: 1;
+    --animation-complexity: full;
+    --hover-enabled: 1;
+  }
+
+  /* Enable hover effects only on desktop */
+  .hover-enabled:hover {
+    animation: cardHover 0.3s ease-out forwards;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  :root {
+    --hover-enabled: 0;
+  }
+
+  /* Remove hover effects on touch devices */
+  .card:hover,
+  .animation-trigger:hover {
+    animation: none;
+    transform: none;
+  }
+
+  /* Add touch feedback instead */
+  .card:active,
+  .animation-trigger:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .card,
+  .animation-element {
+    /* Sharper rendering on high DPI displays */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Landscape mobile optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+  :root {
+    --card-size-multiplier: 0.7;
+  }
+
+  .hero-section {
+    height: 70vh;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  :root {
+    --animation-duration: 250ms;
+    --animation-stagger: 30ms;
+    --card-size-multiplier: 0.75;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .animation-stagger > * {
+    animation-delay: calc(var(--animation-stagger) * var(--stagger-index, 0));
+  }
+}
+
+/* Progressive enhancement classes */
+.animations-enabled .animation-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.animations-enabled .lazy-animation-wrapper[data-loaded="true"] .animation-placeholder {
+  display: none;
+}
+
+/* Lazy loading styles */
+.lazy-animation-wrapper {
+  position: relative;
+  min-height: 100px;
+}
+
+.animation-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+.placeholder-content {
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Low-end device optimizations */
+.low-end-device .animation-placeholder {
+  animation: none;
+  background: #f5f5f5;
+}
+
+.low-end-device .complex-animations {
+  display: none;
+}
+
+/* Touch device optimizations */
+.touch-device .hover-animation {
+  animation: none;
+}
+
+.touch-device .card-hover-effect {
+  transform: none !important;
+}
+
+/* Animation performance optimizations */
+.animation-paused * {
+  animation-play-state: paused !important;
+}
+
+/* Error boundary styles */
+.animation-error-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  padding: 2rem;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.error-content h3 {
+  margin: 0 0 1rem 0;
+  color: #495057;
+  font-size: 1.25rem;
+}
+
+.error-content p {
+  margin: 0 0 1rem 0;
+  color: #6c757d;
+  line-height: 1.5;
+}
+
+.error-details {
+  margin: 1rem 0;
+  text-align: left;
+}
+
+.error-details pre {
+  background: #f1f3f4;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  overflow-x: auto;
+}
+
+.retry-button,
+.retry-animation {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+
+.retry-button:hover,
+.retry-animation:hover {
+  background: #0056b3;
+}
+
+.safe-animation-fallback {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animation-fallback-content {
+  text-align: center;
+  color: #6c757d;
+}
+
+/* Low performance mode optimizations */
+.low-performance-mode .complex-animation {
+  display: none !important;
+}
+
+.low-performance-mode .animation-stagger > * {
+  animation-delay: 0ms !important;
+}
+
+.low-performance-mode .gpu-accelerated {
+  will-change: auto;
+  transform: none;
+}
+
+.animation-disabled {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* Browser-specific optimizations */
+.chrome .gpu-accelerated {
+  transform: translateZ(0);
+}
+
+.firefox .card-3d {
+  perspective: 800px; /* Reduced for Firefox performance */
+}
+
+.safari .animation-element {
+  -webkit-backface-visibility: hidden;
+}
+
+/* Cross-browser animation fallbacks */
+.no-web-animations .animate-fade-in {
+  opacity: 1;
+  transform: none;
+}
+
+.no-css-transforms .card-3d {
+  position: relative;
+}
+
+.no-css-transitions .hover-animation {
+  animation: none;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-fade-in,
+  .animate-slide-in-up,
+  .animate-slide-in-left,
+  .animate-slide-in-right {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .animation-placeholder {
+    animation: none;
+    background: #f5f5f5;
+  }
+}
